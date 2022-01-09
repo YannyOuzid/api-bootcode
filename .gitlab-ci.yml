@@ -27,6 +27,6 @@ deploy:
   image: ruby:2.7
   script:
     - gem install dpl
-    - dpl --provider=heroku --app=$HEROKU_APP_PREPROD --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=$HEROKU_APP --api-key=$HEROKU_API_KEY
   only:
     - main
