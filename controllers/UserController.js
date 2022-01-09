@@ -18,7 +18,7 @@ module.exports = {
     },
 
     register: async (req, res) => {
-        let user = new User({email: req.body.email, username: req.body.username, password: req.body.password, validPassword: req.body.validPassword, role: req.body.role});
+        let user = new User({email: req.body.email, username: req.body.username, password: req.body.password, role: req.body.role});
 
         if (req.body.password !== req.body.validPassword) {
             return res.status(400).send({ error: "Not equal" });

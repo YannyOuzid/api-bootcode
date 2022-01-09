@@ -13,10 +13,6 @@ const User = new mongoose.Schema({
         type: String,
         required: true,
     },
-    validPassword: {
-        type: String,
-        required: true,
-    },
     role: {
         type: Array,
         default: ['ROLE_CLIENT']
