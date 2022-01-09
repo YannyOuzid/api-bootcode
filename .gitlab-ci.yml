@@ -23,7 +23,7 @@ build:
   only:
     - main
 deploy:
-  stage:
+  stage: deploy
   image: ruby:2.7
   script:
     - gem install dpl
