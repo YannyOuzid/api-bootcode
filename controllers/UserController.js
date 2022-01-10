@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     login: async (req, res) => {
     const body = req.body;
-    const user = await User.findOne({ username: body.username });
+    const user = await User.findOne({ email: body.email });
     if (user) {
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (validPassword) {
@@ -16,7 +16,7 @@ module.exports = {
         },
         'secret123'
         )
-        return res.json({ status: 'ok', user:true })
+        return res.json({ status: 'ok', user:token })
       } else {
         res.status(400).json({ error: "Invalid Password" });
       }
