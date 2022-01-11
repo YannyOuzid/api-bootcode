@@ -14,6 +14,13 @@ const Publication = new mongoose.Schema({
     javascript: {
         type: String,
     },
+    description: {
+        type: String,
+    },
+    creationDate: {
+        type: Date,
+        default: Date.now,
+    },
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
