@@ -13,6 +13,10 @@ const Publication = new mongoose.Schema({
     },
     javascript: {
         type: String,
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 })
 

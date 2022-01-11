@@ -1,16 +1,20 @@
 const bcrypt = require("bcrypt");
 const Publication = require("../models/Publication");
+const User = require("../models/User");
 
 module.exports = {
     post: async (req, res) => {
-        let publi = new Publication({title: req.body.title, html: req.body.html, css: req.body.css, javascript: req.body.javascript});
+        const { userId } = req.params;
+        const publi = new Publication(req.body);
+        const user = await User.findById(userId);
 
-        try {
-            const post = await publi.save();
-            res.json(post);
-        } catch(err){
-            res.json({message: err});
-        }
+        publi.author = user;
+
+        await publi.save();
+        user.publication.push(publi);
+
+        await user.save();
+        res.status(201).json(publi)
     },
 
     getAll: async (req, res) => {
@@ -21,6 +25,11 @@ module.exports = {
            res.json({ message: err});
        }
     },
+    getUserPublication: async (req, res) => {
+         const { userId } = req.params;
+         const user = await User.findById(userId).populate("publication");
+         res.status(200).json(user.publication);
+     },
 
     getOne: async (req,res) => {
         try {

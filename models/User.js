@@ -16,7 +16,13 @@ const User = new mongoose.Schema({
     role: {
         type: Array,
         default: ['ROLE_CLIENT']
-    }
+    },
+    publication: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Publication"
+        }
+    ]
 })
 
 module.exports = mongoose.model('User', User);
