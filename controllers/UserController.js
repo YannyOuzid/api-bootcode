@@ -39,4 +39,12 @@ module.exports = {
             res.json({message: err});
         }
     },
+    getOne: async (req,res) => {
+      try {
+          const user = await Publication.findById(req.params.userId);
+          res.json(user);
+      } catch (err) {
+          res.json({message: err});
+      }
+  },
 }

@@ -17,6 +17,9 @@ const Publication = new mongoose.Schema({
     description: {
         type: String,
     },
+    tags: [{
+        type: String,
+    }],
     creationDate: {
         type: Date,
         default: Date.now,
