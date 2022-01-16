@@ -13,7 +13,6 @@ app.get('/', function (req, res) {
     res.send('API Bootcode')
   })
   
-
 app.use("/auth", userRoutes);
 app.use("/publication", publicationRoutes);
 
