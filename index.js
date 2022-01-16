@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const url = "mongodb+srv://admin:admin@cluster0.vfeta.mongodb.net/bootcode?retryWrites=true&w=majority";
 const userRoutes = require("./routes/User");
 const publicationRoutes = require("./routes/Publication");
+const contactRoutes = require("./routes/Contact");
 
 app.use(express.json());
 app.use(cors())
@@ -12,9 +13,10 @@ app.use(cors())
 app.get('/', function (req, res) {
     res.send('API Bootcode')
   })
-  
+
 app.use("/auth", userRoutes);
 app.use("/publication", publicationRoutes);
+app.use("/contact", contactRoutes);
 
 mongoose.connect(url, {useUnifiedTopology: true,}).then(() => console.log("Connected to DB")).catch (console.error);
 
