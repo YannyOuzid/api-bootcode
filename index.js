@@ -8,7 +8,7 @@ const publicationRoutes = require("./routes/Publication");
 const contactRoutes = require("./routes/Contact");
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 app.get('/', function (req, res) {
     res.send('API Bootcode')
