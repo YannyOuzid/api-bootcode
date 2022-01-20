@@ -6,6 +6,7 @@
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 stages:
   - build
+  - eslint
   - deploy
   
 build:
@@ -20,6 +21,13 @@ build:
     expire_in: 1hour
     paths:
       - dist/my-app
+  only:
+    - main
+eslint:
+  stage: eslint
+  image: node:12
+  script:
+    - npm run lint
   only:
     - main
 deploy:

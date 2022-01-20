@@ -1,4 +1,3 @@
-const bcrypt = require("bcrypt");
 const Publication = require("../models/Publication");
 const User = require("../models/User");
 
@@ -18,18 +17,18 @@ module.exports = {
     },
 
     getAll: async (req, res) => {
-       try {
-           const publications = await Publication.find();
-           res.json(publications);
-       } catch(err) {
-           res.json({ message: err});
-       }
+        try {
+            const publications = await Publication.find();
+            res.json(publications);
+        } catch(err) {
+            res.json({ message: err});
+        }
     },
     getUserPublication: async (req, res) => {
-         const { userId } = req.params;
-         const user = await User.findById(userId).populate("publication");
-         res.status(200).json(user.publication);
-     },
+        const { userId } = req.params;
+        const user = await User.findById(userId).populate("publication");
+        res.status(200).json(user.publication);
+    },
 
     getOne: async (req,res) => {
         try {

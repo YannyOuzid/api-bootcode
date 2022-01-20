@@ -1,8 +1,9 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const cors = require("cors")
 const mongoose = require('mongoose');
-const url = "mongodb+srv://admin:admin@cluster0.vfeta.mongodb.net/bootcode?retryWrites=true&w=majority";
+const url = process.env.DB_URL
 const userRoutes = require("./routes/User");
 const publicationRoutes = require("./routes/Publication");
 const contactRoutes = require("./routes/Contact");
@@ -12,7 +13,7 @@ app.use(cors());
 
 app.get('/', function (req, res) {
     res.send('API Bootcode')
-  })
+})
 
 app.use("/auth", userRoutes);
 app.use("/publication", publicationRoutes);
