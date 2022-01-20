@@ -11,4 +11,4 @@ module.exports = {
             res.json({message: err});
         }
     }
-}
+};

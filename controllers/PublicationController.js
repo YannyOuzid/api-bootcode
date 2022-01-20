@@ -13,7 +13,7 @@ module.exports = {
         user.publication.push(publi);
 
         await user.save();
-        res.status(201).json(publi)
+        res.status(201).json(publi);
     },
 
     getAll: async (req, res) => {
@@ -42,7 +42,7 @@ module.exports = {
 
     update: async (req,res) => {
         try {
-            const post = await Publication.findOne({ _id: req.params.postId })
+            const post = await Publication.findOne({ _id: req.params.postId });
 
             if (req.body.title) {
                 post.title = req.body.title;
@@ -75,5 +75,4 @@ module.exports = {
             res.json({ message: err});
         }
     }
-
-}
+};

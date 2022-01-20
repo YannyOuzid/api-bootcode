@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const jwt = require('jsonwebtoken');
-require('dotenv').config()
+require('dotenv').config();
 
 module.exports = {
     login: async (req, res) => {
@@ -18,8 +18,8 @@ module.exports = {
                         email: user.email,
                     },
                     process.env.JWT_CODE
-                )
-                return res.json({ status: 'ok', user:token })
+                );
+                return res.json({ status: 'ok', user:token });
             } else {
                 res.status(400).json({ error: "Invalid Password" });
             }
@@ -49,4 +49,4 @@ module.exports = {
             res.json({message: err});
         }
     },
-}
+};

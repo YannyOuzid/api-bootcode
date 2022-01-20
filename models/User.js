@@ -23,6 +23,6 @@ const User = new mongoose.Schema({
             ref: "Publication"
         }
     ]
-})
+});
 
 module.exports = mongoose.model('User', User);
