@@ -27,6 +27,7 @@ eslint:
   stage: eslint
   image: node:12
   script:
+    - npm install
     - npm run lint
   only:
     - main
