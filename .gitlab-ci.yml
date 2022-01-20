@@ -29,7 +29,7 @@ eslint:
   script:
     - npm install
     - npm install eslint-config-airbnb --save-dev
-    - npm npm install --save-dev eslint eslint-plugin-node
+    - npm install --save-dev eslint eslint-plugin-node
     - npm run lint
   only:
     - main
