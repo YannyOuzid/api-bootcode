@@ -9,6 +9,7 @@ const url = process.env.DB_URL;
 const userRoutes = require('./routes/User');
 const publicationRoutes = require('./routes/Publication');
 const contactRoutes = require('./routes/Contact');
+const commentRoutes = require('./routes/Comment');
 
 app.use(express.json());
 app.use(cors());
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 app.use('/auth', userRoutes);
 app.use('/publication', publicationRoutes);
 app.use('/contact', contactRoutes);
+app.use('/comment', commentRoutes);
 
 mongoose.connect(url, { useUnifiedTopology: true }).then(() => console.log('Connected to DB')).catch(console.error);
 
