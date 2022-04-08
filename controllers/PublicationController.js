@@ -65,7 +65,6 @@ module.exports = {
       res.json({ message: err });
     }
   },
-
   delete: async (req, res) => {
     try {
       const post = await Publication.deleteOne({ _id: req.params.postId });
@@ -74,4 +73,17 @@ module.exports = {
       res.json({ message: err });
     }
   },
+  like: async(req, res) => {
+    const { userId, postId } = req.params;
+    const user = await User.findById(userId);
+    const publication = await Publication.findById(postId);
+
+    user.publicationliked.push(publication);
+    publication.likes.push(user);
+    await publication.save();
+    await user.save();
+
+    res.status(201).json('Liked');
+
+  }
 };

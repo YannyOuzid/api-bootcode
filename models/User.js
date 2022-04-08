@@ -29,7 +29,7 @@ const User = new mongoose.Schema({
       ref: 'Comment',
     },
   ],
-  likes: [
+  publicationliked: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Publication',
